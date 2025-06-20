@@ -283,39 +283,6 @@ export default function UseStatePOC() {
             </pre>
           </div>
         </section>
-
-        {/* Best Practices */}
-        <section className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6">
-          <h2 className="text-2xl font-semibold text-blue-800 mb-4">
-            ✨ useState Best Practices Demonstrated:
-          </h2>
-          <ul className="space-y-3 text-blue-700">
-            <li className="flex items-start gap-3">
-              <span className="text-blue-500 text-xl">•</span>
-              <span><strong>Functional Updates:</strong> Using <code className="bg-blue-100 px-2 py-1 rounded">setCount(prev =&gt; prev + 1)</code> for safer updates</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-500 text-xl">•</span>
-              <span><strong>Object Spread:</strong> Using spread operator to update objects immutably</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-500 text-xl">•</span>
-              <span><strong>Array Updates:</strong> Using spread and filter for immutable array operations</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-500 text-xl">•</span>
-              <span><strong>Nested Objects:</strong> Properly updating nested object properties</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-500 text-xl">•</span>
-              <span><strong>Multiple States:</strong> Using separate useState calls for different concerns</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-500 text-xl">•</span>
-              <span><strong>Client Component:</strong> Using 'use client' directive for Next.js App Router</span>
-            </li>
-          </ul>
-        </section>
       </div>
     </div>
   )
