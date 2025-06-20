@@ -9,11 +9,11 @@ export default function UseStatePOC() {
   const [text, setText] = useState('')
   const [isVisible, setIsVisible] = useState(true);
 
-  // useState with an object
+  // useState with an object - Fixed: age as empty string instead of 0
   const [user, setUser] = useState({
     name: '',
     email: '',
-    age: 0
+    age: ''
   });
 
   // useState with an array
@@ -185,7 +185,7 @@ export default function UseStatePOC() {
               type="number" 
               placeholder="Enter your age"
               value={user.age}
-              onChange={(e) => updateUser('age', parseInt(e.target.value) || 0)}
+              onChange={(e) => updateUser('age', e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
             />
           </div>
