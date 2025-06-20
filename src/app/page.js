@@ -75,11 +75,12 @@ export default function UseStatePOC() {
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-r from-blue-500 to-indigo-100 py-8 px-4'>
-      <div className='max-w-4xl mx-auto'></div>
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 bg-white rounded-lg shadow-lg py-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 bg-white rounded-lg shadow-lg py-6">
           useState Hook POC
         </h1>
+        
         {/* Basic Counter Example */}
         <section className="mb-8 bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">
@@ -110,6 +111,7 @@ export default function UseStatePOC() {
             </button>
           </div>
         </section>
+
         {/* Text Input Example */}
         <section className="mb-8 bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">
@@ -136,7 +138,8 @@ export default function UseStatePOC() {
             🗑️ Clear
           </button>
         </section>
-          {/* Boolean Toggle Example */}
+
+        {/* Boolean Toggle Example */}
         <section className="mb-8 bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">
             3. Toggle Visibility (Boolean State)
@@ -157,7 +160,8 @@ export default function UseStatePOC() {
             </div>
           </div>
         </section>
-                {/* Object State Example */}
+
+        {/* Object State Example */}
         <section className="mb-8 bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">
             4. User Form (Object State)
@@ -192,6 +196,7 @@ export default function UseStatePOC() {
             </pre>
           </div>
         </section>
+
         {/* Array State Example */}
         <section className="mb-8 bg-white rounded-lg shadow-md p-6 border border-gray-200">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">
@@ -227,7 +232,91 @@ export default function UseStatePOC() {
             ))}
           </div>
         </section>
+
+        {/* Complex Nested State Example */}
+        <section className="mb-8 bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+            6. Complex Form (Nested Object State)
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <input 
+              type="text" 
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={(e) => updateFormData('firstName', e.target.value)}
+              className="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+            />
+            <input 
+              type="text" 
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={(e) => updateFormData('lastName', e.target.value)}
+              className="px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+            />
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 mb-6">
+            <div className="flex items-center gap-3">
+              <label className="text-gray-700 font-medium">🎨 Theme:</label>
+              <select 
+                value={formData.preferences.theme}
+                onChange={(e) => updatePreferences('theme', e.target.value)}
+                className="px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+              >
+                <option value="light">☀️ Light</option>
+                <option value="dark">🌙 Dark</option>
+              </select>
+            </div>
+            <label className="flex items-center gap-3 text-gray-700 font-medium cursor-pointer">
+              <input 
+                type="checkbox" 
+                checked={formData.preferences.notifications}
+                onChange={(e) => updatePreferences('notifications', e.target.checked)}
+                className="w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500"
+              />
+              🔔 Enable Notifications
+            </label>
+          </div>
+          <div className="bg-gray-50 p-4 rounded-lg border-2 border-gray-200">
+            <h3 className="font-semibold mb-3 text-gray-700">📋 Form Data:</h3>
+            <pre className="text-sm text-gray-700 overflow-x-auto bg-white p-3 rounded border">
+              {JSON.stringify(formData, null, 2)}
+            </pre>
+          </div>
+        </section>
+
+        {/* Best Practices */}
+        <section className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg p-6">
+          <h2 className="text-2xl font-semibold text-blue-800 mb-4">
+            ✨ useState Best Practices Demonstrated:
+          </h2>
+          <ul className="space-y-3 text-blue-700">
+            <li className="flex items-start gap-3">
+              <span className="text-blue-500 text-xl">•</span>
+              <span><strong>Functional Updates:</strong> Using <code className="bg-blue-100 px-2 py-1 rounded">setCount(prev =&gt; prev + 1)</code> for safer updates</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-blue-500 text-xl">•</span>
+              <span><strong>Object Spread:</strong> Using spread operator to update objects immutably</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-blue-500 text-xl">•</span>
+              <span><strong>Array Updates:</strong> Using spread and filter for immutable array operations</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-blue-500 text-xl">•</span>
+              <span><strong>Nested Objects:</strong> Properly updating nested object properties</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-blue-500 text-xl">•</span>
+              <span><strong>Multiple States:</strong> Using separate useState calls for different concerns</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-blue-500 text-xl">•</span>
+              <span><strong>Client Component:</strong> Using 'use client' directive for Next.js App Router</span>
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
   )
-  
 }
